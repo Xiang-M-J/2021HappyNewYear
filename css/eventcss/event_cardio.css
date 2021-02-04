@@ -1,0 +1,70 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
+h11,
+h33 {
+	font-family: 'Roboto', 'Avenir Next', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+	position: relative;
+	margin: 0 auto;
+}
+h11 {
+	font-size: 3.7em;
+	color: deepskyblue;
+}
+h33 {
+	font-size: 6.3em;
+	color: orange;
+}
+
+@font-face{
+	font-family: FontAwesome;
+	src: url("../../fonts/FontAwesome.otf");
+  }
+header {
+	position: relative;
+	width: 100%;
+
+	color: #ac2525;
+	background: url('../../images/bg3.jpg');
+	background-size: cover;
+
+}
+
+header .table {
+	display: table;
+	height: 80%;
+}
+
+header .container {
+	height: 80%;
+}
+
+header .header-text {
+	display: table-cell;
+	text-align: center;
+	color: white;
+}
+
+header .typed {
+	display: inline-block;
+	margin: 0;
+}
+
+header .typed-cursor {
+	font-size: 60px;
+	display: inline-block;
+	margin: 0 10px;
+	color: #00a8ff;
+	-webkit-animation-name: flash;
+	animation-name: flash;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+}
+
+a {
+	text-decoration: none;
+	color: #00a8ff;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+

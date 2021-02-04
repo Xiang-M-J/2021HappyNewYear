@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>许愿墙</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+            background-size: cover;
+            background: antiquewhite ;
+        }
+
+        body {
+            margin: 0 auto;
+            padding: 0;
+            font-size: 0.7em;
+            position: relative;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        input[id="res"] {
+            width: 40%;
+            height: 7%;
+            position: fixed;
+            bottom: 5%;
+            left: 40%;
+            background-color: transparent;
+            margin-left: -150px;
+            padding-left: 15px;
+            border: 3px solid #a7e6ee;
+            outline: none;
+            border-radius: 5px;
+            -webkit-box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+            box-shadow: inset 0 4px 4px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+        }
+        input[id="res"]:focus{
+            border-color: #01aee7;
+            outline: 0;
+            -webkit-box-shadow: inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgb(141, 233, 102);
+            box-shadow: inset 0 2px 2px rgba(0,0,0,.075),0 0 8px rgb(102, 187, 233)
+        }
+
+        .item {
+            width: 15%;
+            height: 6.2em;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 15px/5px 10px 10px 0;
+            transform: skew(-1deg);
+            cursor: move;
+        }
+
+        .item span {
+            position: absolute;
+            right: 6px;
+            bottom: 4px;
+            font-size: 0.5em;
+            color: #383333;
+            cursor: pointer;
+        }
+        .item span1{
+            font-size: 0.5em;
+            font-family: '微软雅黑', sans-serif;
+        }
+        a {
+            position: fixed;
+            bottom: 0;
+            left: 70%;
+            font-size: 0.5em;
+            color: #035de0;
+            transform: translate(-50%, -50%);
+            text-decoration: none;
+            padding: 18px 36px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background-color: #adead3;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            transition: 0.4s ease;
+            cursor: pointer;
+        }
+        a:focus {
+            color: #ffffff;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        a::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            bottom: 2px;
+            left: 2px;
+            width: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        a span:nth-child(1) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #3d00f8, #1779ff);
+            animation: animate1 2s linear infinite;
+            animation-delay: 1s;
+        }
+        @keyframes animate1 {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        a span:nth-child(2) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #4900ff, #1779ff);
+            animation: animate2 2s linear infinite;
+        }
+        @keyframes animate2 {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+        a span:nth-child(3) {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to left, #4500ff, #1779ff);
+            animation: animate3 2s linear infinite;
+            animation-delay: 1s;
+        }
+        @keyframes animate3 {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        a span:nth-child(4) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to top, #4600ff, #1779ff);
+            animation: animate4 2s linear infinite;
+        }
+        @keyframes animate4 {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+<audio controls="controls" hidden="hidden" autoplay="autoplay"  loop="loop">
+    <source src="../Music/bgMusic1.mp3" type="audio/mp3">
+    <source src="../Music/bgMusic1.mp3" type="audio/ogg">
+    <embed height="50px" width="100px" src="../Music/bgMusic1.mp3">
+</audio>
+<div class="container"></div>
+<p >
+    <a class="comfirmBtn" id="btn">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        点击发布</a>
+</p>
+
+<p><label for="res"></label><input type="text" name="res" id="res" placeholder="写下你的新年愿望..."></p>
+<script>
+    // 获取DOM元素
+    let container = document.getElementsByClassName('container')[0];
+    let btn = document.getElementsByClassName('comfirmBtn')[0];
+    // 默认的许愿单文字
+    let wishes = ['新年来好运'];
+    // 许愿单随机背景颜色
+    let bgcColors = ['#c1c5d0','purple', '#54e764',
+        '#ec3d86', '#ffcc00', 'rgba(255,123,123,1)',
+        'yellowgreen', 'pink', 'skyblue'];
+    let num=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+    // 渲染函数 新增一个div元素 做好css配置以后将该div返回
+    let init=function (wish){
+        let bgcColorIndex= 0;
+        let randomTop=0;
+        let randomLeft=0;
+        let content = `<div class="item" style="top:${randomTop}px;left:${randomLeft}px;background-color:${bgcColors[bgcColorIndex]}">${wish}<span>关闭</span></div>`;
+        container.innerHTML += content;
+    }
+    // let oBtn = document.getElementById("btn")[0];
+    let count = 0;
+
+    //利用全局变量不销毁的原理,把需要累加的数字定义为全局的变量
+    //弊端:在项目中为了防止全局变量之间的冲突,我们一般是禁止或者减少使用全局变量的
+
+    // 页面刚开始加载时 将默认的许愿单加载到页面上
+    window.onload = function () {
+        // 遍历所有默认的许愿单 将其渲染到页面上面
+        // for (let i = 0; i < wishes.length; i++) {
+        //     render(wishes[i]);
+        // }
+        init(wishes[0])
+    }
+
+    // 发布新内容函数
+    let newContent = function () {
+
+        if (res.value!==''){
+            count++;
+            console.log(count);
+            let inputText = res.value;
+            render(inputText);
+            res.value = '';
+        }
+
+    }
+    let render = function (wish) {
+        // 生成随机数据
+
+        let bgcColorIndex = Math.floor(Math.random() * bgcColors.length);
+        let Left=0;
+        let Top=0;
+        if (num[count]<=3){
+            Left=21*num[count];
+            Top=0;
+        }else if(num[count]>3&&num[count]<=7){
+            Left=21*(num[count]-4);
+            Top=9;
+        }else if(num[count]>7&&num[count]<=11){
+            Left=21*(num[count]-8);
+            Top=18;
+        }else if(num[count]>11&&num[count]<=15){
+            Left=21*(num[count]-12);
+            Top=27;
+        }else {
+            alert('Wish wall can only show a maximum of 16 wishes at the same time');
+            Left=0;
+            Top=0;
+        }
+        let content = `<div class="item" style="top:${Top}em;left:${Left}%;background-color:${bgcColors[bgcColorIndex]}"><span1>${wish}</span1><span>关闭</span></div>`;
+        container.innerHTML += content;
+    }
+    // 为确认按钮添加点击事件
+    btn.onclick = newContent;
+
+    // 通过事件委托 给整个document绑定点击事件 但是只有点击span元素的时候 移除其父节点
+    document.onclick = function (e) {
+
+        if (e.target.nodeName === 'SPAN') {
+
+            container.removeChild(e.target.parentNode);
+        }
+    }
+
+
+</script>
+</body>
+
+</html>

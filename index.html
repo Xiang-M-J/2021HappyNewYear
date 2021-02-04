@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="css/indexStyle.css" rel="stylesheet">
+
+    <title>Navigate</title>
+    <link rel="shortcut icon" href="images/index.ico">
+</head>
+<body>
+<br>
+
+<header style="text-align: center; font-size: 180px;color: mediumpurple;  ">2 0 2 1</header>
+<!--按钮控件-->
+<a href="html/firework.html" target="_blank" style="color: cornflowerblue; top:55%;left: 10%;">放烟花</a>
+<a href="html/Clock.html" target="_blank" style="color: purple; top: 55%; left: 30%">新年倒计时</a>
+<a href="html/event.html" target="_blank" style="color:coral; top: 55%; left: 50%">大事记</a>
+<a href="html/WishWall.html" target="_blank" style="color: forestgreen; top:55%;left: 70%">许愿墙</a>
+<a href="html/About.html" target="_blank" style="color: wheat;top: 55%;left: 90%">关于</a>
+
+<script type="text/javascript">
+    function browserRedirect() {
+        let sUserAgent = navigator.userAgent.toLowerCase();
+        if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+            window.location.href = "html/index_Mobile.html";
+        }
+    }
+    browserRedirect();
+</script>
+</body>
+</html>
