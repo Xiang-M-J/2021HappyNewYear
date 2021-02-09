@@ -45,4 +45,10 @@ When using, directly open the ***<font color=#00ffff>index.html</font>*** file i
 2.  <a href="https://pan.baidu.com/s/15D5iGuZZgDQOC9MHZRuS6w" target="_blank"> BaiduDisk </a> &nbsp; &nbsp;
 <font color=yellow size=2px>  提取码：1506 </font>
 
+<br/>
+<font size=5px color=lightyellow>Want information about another project(2021NewYear_CSharp)?</font>  
 
+1.  <a href="https://github.com/Xiang-M-J/2021HappyNewYear/tree/master/%E4%BD%BF%E7%94%A8%E7%B4%A0%E6%9D%90" target="_blank"> Github </a>  
+
+2.  <a href="https://pan.baidu.com/s/1_Oi-0vquDQCd8dtx4SqKLA" target="_blank"> BaiduDisk </a> &nbsp; &nbsp;
+<font color=yellow size=2px>  Code：4kdl </font>
